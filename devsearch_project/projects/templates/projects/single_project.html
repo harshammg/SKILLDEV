@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<h1>{{project.title}}</h1>
+<hr>
+{% for tag in project.tag.all %}
+<span>{{tag}}</span>
+{% endfor %}
+<hr>
+<img src="{{ project.featured_image.url }}" alt="Featured Image">
+<p>{{project.description}}</p>
+
+{% endblock %}

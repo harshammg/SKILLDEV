@@ -1,0 +1,29 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <p>Project PAGE</p>
+
+
+
+    <table>
+        <tr>
+            <th>Project Name</th>
+            <th>Positive Votes</th>
+            <th>Votes</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{project.title}}</td>
+            <td>{{project.vote_ratio}}</td>
+            <td>{{project.vote_total}}</td>
+            <td><a href="{% url 'project' project.id  %}">VIEW MORE</a></td>
+            <td><a href="{% url 'update-project' project.id  %}">Edit Project</a></td>
+            <td><a href="{% url 'delete-project' project.id  %}">Delete Project</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
